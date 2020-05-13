@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Images, Container, Row, Col} from 'react-bootstrap';
+import React, {useState, useEffect} from 'react';
+import {Container, Row, Col} from 'react-bootstrap';
 import image from './maths.jpg';
 import './MyComponentCalc.css';
 
@@ -21,6 +21,12 @@ export function MyComponentCalc() {
     function Caluculate() {
         setTotal(number1 + number2);
     }
+
+    useEffect(() => {
+      // Update the document title using the browser API
+      document.title = `You clicked ${total}`;
+      console.log('I ran');
+    },[total]);
 
     return (<div><Container fluid >
         <Row style={styles}>
